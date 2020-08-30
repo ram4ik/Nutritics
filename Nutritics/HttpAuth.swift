@@ -14,7 +14,7 @@ class HttpAuth: ObservableObject {
     @Published var authenticated = false
 
     func postAuth(username: String, password: String) {
-        guard let url = URL(string: "https://\(String):\(password)@www.nutritics.com/api/v1.1/LIST/food=bananna") else { return }
+        guard let url = URL(string: "https://\(username):\(password)@www.nutritics.com/api/v1.1/LIST/food=bananna") else { return }
 
         URLSession.shared.dataTask(with: URLRequest(url: url)) { (data, response, error) in
             guard let data = data else { return }
