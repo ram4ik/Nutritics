@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var username: String = ""
+    @State private var password: String = ""
+
+    @ObservedObject var manager = HttpAuth()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button(action: {
+            self.manager.postAuth(username: self.username, password: self.password)
+        }, label: {
+            Text("Button")
+        })
     }
 }
 
